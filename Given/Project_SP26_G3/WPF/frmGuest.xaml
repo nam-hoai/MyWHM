@@ -5,8 +5,90 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
-        Title="frmGuest" Height="450" Width="800">
+        Title="frmGuest" Height="650" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TabControl Background="LightBlue" Margin="10" Grid.Row="0">
+            <TabItem Header="Product Catalog">
+                <StackPanel>
+                    <DataGrid x:Name="lstProduct" Margin="10" Width="700" AutoGenerateColumns="False" SelectionChanged="lstProduct_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding ProductId}"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding ProductName}"/>
+                            <DataGridTextColumn Header="Code" Binding="{Binding ProductCode}"/>
+                            <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                            <!--<DataGridTextColumn Header="Sender" Binding="{Binding Sender}"/>-->
+                            <DataGridTextColumn Header="Location" Binding="{Binding Location}"/>
+                            <DataGridTextColumn Header="Category Name" Binding="{Binding CatName}"/>
+                            <DataGridTextColumn Header="Dat Stock In" Binding="{Binding DateIn}"/>
+                            <DataGridTextColumn Header="Date Stock Out" Binding="{Binding DateOut}"/>
+                            <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <GroupBox Header="Detail Info" Width="700" Margin="10" Background="LightGray">
+                        <WrapPanel Margin="5">
+                            <StackPanel Margin="5" Width="500">
+                                <WrapPanel>
+                                    <Label Content="Product ID" Width="100" Margin="5" FontWeight="Bold"/>
+                                    <TextBox x:Name="txtId" Width="350" Margin="5" IsReadOnly="true"/>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="Product Name" Width="100" Margin="5" FontWeight="Bold"/>
+                                    <TextBox x:Name="txtName" Width="350" Margin="5"/>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="Product Code" Width="100" Margin="5" FontWeight="Bold"/>
+                                    <TextBox x:Name="txtCode" Width="350" Margin="5"/>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="Quantity" Width="100" Margin="5" FontWeight="Bold"/>
+                                    <TextBox x:Name="txtQuantity" Width="350" Margin="5"/>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="Seneder" Width="100" Margin="5" FontWeight="Bold"/>
+                                    <TextBox x:Name="txtSender" Width="350" Margin="5"/>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="Location" Width="100" Margin="5" FontWeight="Bold"/>
+                                    <TextBox x:Name="txtLocation" Width="350" Margin="5"/>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="Category Name" Width="100" Margin="5" FontWeight="Bold"/>
+                                    <ComboBox x:Name="cboCat" Width="350" Margin="5"/>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="Date Stock In" Width="100" Margin="5" FontWeight="Bold"/>
+                                    <DatePicker x:Name="txtDateIn" Width="350" Margin="5"/>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="Date Stock Out" Width="100" Margin="5" FontWeight="Bold"/>
+                                    <DatePicker x:Name="txtDateOut" Width="350" Margin="5"/>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="Status" Width="100" Margin="5" FontWeight="Bold"/>
+                                    <WrapPanel Width="350" Margin="5" VerticalAlignment="Center" IsEnabled="true">
+                                        <RadioButton x:Name="rbEnable" Content="Enable" GroupName="Status" IsChecked="true"/>
+                                        <RadioButton x:Name="rbDisable" Content="Disable" GroupName="Status"/>
+                                    </WrapPanel>
+                                </WrapPanel>
+                            </StackPanel>
+                            <StackPanel>
+                                <Button x:Name="btnStockIn" Content="STOCK IN" Width="100" Margin="5" Click="btnStockIn_Click"/>
+                                <Button x:Name="btnStockOut" Content="STOCK OUT" Width="100" Margin="5" Click="btnStockOut_Click"/>
+                                <Button x:Name="btnSearch" Content="SEARCH" Width="100" Margin="5" Click="btnSearch_Click"/>
+                                <Button x:Name="btnReset" Content="RESET" Width="100" Margin="5" Click="btnReset_Click"/>
+                            </StackPanel>
+                        </WrapPanel>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Profile"></TabItem>
+        </TabControl>
+        <WrapPanel Grid.Row="1">
+            <Button x:Name="btnOut" Content="Exit" Width="100" Margin="10" Click="btnOut_Click"/>
+        </WrapPanel>
     </Grid>
 </Window>

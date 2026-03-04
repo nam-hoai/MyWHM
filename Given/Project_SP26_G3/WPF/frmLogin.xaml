@@ -6,7 +6,53 @@
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
         Title="Login" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="LightSkyBlue">
+        <StackPanel Background="LightGreen" Margin="50">
+            <Label Content="Login In" 
+                   HorizontalAlignment="Center"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Foreground="red"/>
+            <WrapPanel>
+                <StackPanel Width="450">
+                    <Label  Content="Username"
+                            FontSize="16"
+                            FontWeight="Bold"/>
+                    <TextBox    x:Name="txtName"
+                                Margin="10"
+                                HorizontalAlignment="Left"
+                                Width="200"/>
+                    <Label  Content="Password"
+                            FontSize="16"
+                            FontWeight="Bold"/>  
+                    <TextBox    x:Name="txtPass"
+                                Margin="10"
+                                HorizontalAlignment="Left"
+                                Width="200"/>       
+                    <WrapPanel>
+                        <Button x:Name="btnLogin" 
+                                Content="Login" 
+                                Width="100" 
+                                Margin="10" 
+                                Click ="btnLogin_Click"/>
+                        <Button x:Name="btnForget" 
+                                Content="Forget Password" 
+                                Width="100" 
+                                Margin="10" 
+                                Click= "btnForget_Click" />
+                        <Button x:Name="btnClose" 
+                                Content="Exit" 
+                                Width="100" 
+                                Margin="10" 
+                                Click="btnClose_Click"/>
+                    </WrapPanel>
+                </StackPanel>
+                <StackPanel>
+                    <Image  Source="1746650.png"
+                            Width="200" Height="200" 
+                            Stretch="UniformToFill"/>
+                </StackPanel>
+            </WrapPanel>
+        </StackPanel>
     </Grid>
 </Window>

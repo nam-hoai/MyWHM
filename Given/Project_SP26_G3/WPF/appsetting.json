@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "MyCnn": "server=DESKTOP-8C7ULVR\\SQLEXPRESS;database=Project_SP26_G3;uid=sa;pwd=123;TrustServerCertificate=True;"
+  }
+}

@@ -121,3 +121,10 @@ SET IDENTITY_INSERT [dbo].[Products] on
 /***** Insert here *****/
 SET IDENTITY_INSERT [dbo].[Products] off
 go
+
+/***** Common Query: Select *****/
+select * from [dbo].[Roles]
+select * from [dbo].[Categories]
+select * from [dbo].[Persons]
+select * from [dbo].[Warehouses]
+select * from [dbo].[Products]
