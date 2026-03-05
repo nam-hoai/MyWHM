@@ -16,7 +16,7 @@ namespace WPF
     /// </summary>
     public partial class frmAdmin : Window
     {
-        public frmAdmin()
+        public frmAdmin(string name)
         {
             InitializeComponent();
         }

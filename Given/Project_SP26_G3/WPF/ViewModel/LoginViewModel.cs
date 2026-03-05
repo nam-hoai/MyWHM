@@ -1,31 +1,121 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using WPF.Service;
 
-public class LoginViewModel
+namespace WPF.ViewModel;
+public class LoginViewModel : INotifyPropertyChanged
 {
-    public ICommand LoginCommand { get; }
-    public ICommand ForgetCommand { get; }
-    public ICommand CloseCommand { get; }
+    private readonly IAuthenService _authenService;
 
     public LoginViewModel()
     {
-        LoginCommand = new RelayCommand(Login);
-        ForgetCommand = new RelayCommand(Forget);
-        CloseCommand = new RelayCommand(Close);
+        _authenService = new AuthenService();
+
+        LoginCommand = new RelayCommand<object>(Login);
+        CloseCommand = new RelayCommand<object>(Close);
+        ForgetCommand = new RelayCommand<object>(ForgetPassword);
     }
 
-    private void Login(object obj)
+    private string _username = null!;
+
+    public string Username
     {
-        MessageBox.Show("Login logic here");
+        get => _username;
+        set
+        {
+            _username = value;
+            OnPropertyChanged(nameof(Username));
+        }
     }
 
-    private void Forget(object obj)
+    public ICommand LoginCommand { get; }
+
+    public ICommand CloseCommand { get; }
+
+    public ICommand ForgetCommand { get; }
+
+    private void Login(object parameter)
     {
-        MessageBox.Show("Forget logic here");
+        var passBox = parameter as PasswordBox;
+
+        if (passBox == null)
+            return;
+
+        string password = passBox.Password;
+
+        if (string.IsNullOrEmpty(Username))
+        {
+            MessageBox.Show("Username is required");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(password))
+        {
+            MessageBox.Show("Password is required");
+            return;
+        }
+
+        try
+        {
+            var user = _authenService.Login(Username, password);
+
+            if (user == null)
+            {
+                MessageBox.Show("Invalid username or password");
+                return;
+            }
+
+            MessageBox.Show("Login success");
+
+            if (user.RoleId == 1)
+            {
+                new WPF.frmAdmin(Username).Show();
+            }
+            else if (user.RoleId == 2)
+            {
+                new WPF.frmGuest(Username).Show();
+            }
+
+            Application.Current.Windows[0]?.Close();
+        }
+        catch (System.Exception ex)
+        {
+            MessageBox.Show("Login fail: " + ex.Message);
+        }
     }
 
-    private void Close(object obj)
+    private void ForgetPassword(object parameter)
     {
+        if (string.IsNullOrEmpty(Username))
+        {
+            MessageBox.Show("Enter username first");
+            return;
+        }
+
+        var user = _authenService.GetUser(Username);
+
+        if (user == null)
+        {
+            MessageBox.Show("Username does not exist");
+        }
+        else
+        {
+            MessageBox.Show("Password: " + user.Password);
+        }
+    }
+
+    private void Close(object parameter)
+    {
+        MessageBox.Show("Good Bye!");
         Application.Current.Shutdown();
+    }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    protected void OnPropertyChanged(string name)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

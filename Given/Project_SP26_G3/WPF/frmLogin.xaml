@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
         Title="Login" Height="450" Width="800">
+    
     <Grid Background="LightSkyBlue">
         <StackPanel Background="LightGreen" Margin="50">
             <Label Content="Login In" 
@@ -18,33 +19,50 @@
                     <Label  Content="Username"
                             FontSize="16"
                             FontWeight="Bold"/>
-                    <TextBox    x:Name="txtName"
+                    <TextBox    Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                                 Margin="10"
                                 HorizontalAlignment="Left"
                                 Width="200"/>
                     <Label  Content="Password"
                             FontSize="16"
-                            FontWeight="Bold"/>  
-                    <TextBox    x:Name="txtPass"
-                                Margin="10"
-                                HorizontalAlignment="Left"
-                                Width="200"/>       
+                            FontWeight="Bold"/>
                     <WrapPanel>
-                        <Button x:Name="btnLogin" 
-                                Content="Login" 
+                        <Grid>
+                            <!-- PasswordBox -->
+                            <PasswordBox x:Name="passBox"
+                                         Width="200"
+                                         Margin="10"
+                                         HorizontalAlignment="Left"
+                                         PasswordChanged="PasswordBox_PasswordChanged"/>
+                            <!-- TextBox display password -->
+                            <TextBox    x:Name="txtVisiblePassword"
+                                        Width="200"
+                                        Margin="10"
+                                        Visibility="Collapsed"/>
+                        </Grid>
+                        <!-- checkbox show password -->
+                        <CheckBox   Content="Show Password"
+                                    Margin="10"
+                                    Checked="ShowPassword_Checked"
+                                    Unchecked="ShowPassword_Unchecked"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <!-- Button login -->
+                        <Button Content="Login" 
                                 Width="100" 
                                 Margin="10" 
-                                Click ="btnLogin_Click"/>
-                        <Button x:Name="btnForget" 
-                                Content="Forget Password" 
+                                Command="{Binding LoginCommand}"
+                                CommandParameter="{Binding ElementName=passBox}"/>
+                        <!-- Button forget password -->
+                        <Button Content="Forget Password" 
                                 Width="100" 
                                 Margin="10" 
-                                Click= "btnForget_Click" />
-                        <Button x:Name="btnClose" 
-                                Content="Exit" 
+                                Command="{Binding ForgetCommand}"/>
+                        <!-- Button exit -->
+                        <Button Content="Exit" 
                                 Width="100" 
                                 Margin="10" 
-                                Click="btnClose_Click"/>
+                                Command="{Binding CloseCommand}"/>
                     </WrapPanel>
                 </StackPanel>
                 <StackPanel>

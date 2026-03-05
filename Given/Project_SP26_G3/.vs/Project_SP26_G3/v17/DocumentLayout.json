@@ -3,28 +3,44 @@
   "WorkspaceRootPath": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmguest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmguest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmlogin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmlogin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmlogin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmlogin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\authenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\authenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmlogin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmlogin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\models\\mycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\models\\mycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmadmin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmadmin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmlogin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmlogin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmguest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmguest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\iauthenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\iauthenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmguest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmguest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,70 +62,123 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MyContext.cs",
-              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Models\\MyContext.cs",
-              "RelativeDocumentMoniker": "WPF\\Models\\MyContext.cs",
-              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Models\\MyContext.cs",
-              "RelativeToolTip": "WPF\\Models\\MyContext.cs",
+              "DocumentIndex": 6,
+              "Title": "frmGuest.xaml.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmGuest.xaml.cs",
+              "RelativeDocumentMoniker": "WPF\\frmGuest.xaml.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmGuest.xaml.cs",
+              "RelativeToolTip": "WPF\\frmGuest.xaml.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T03:44:04.906Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmLogin.xaml.cs",
-              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmLogin.xaml.cs",
-              "RelativeDocumentMoniker": "WPF\\frmLogin.xaml.cs",
-              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmLogin.xaml.cs",
-              "RelativeToolTip": "WPF\\frmLogin.xaml.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T05:45:15.878Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmGuest.xaml",
-              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmGuest.xaml",
-              "RelativeDocumentMoniker": "WPF\\frmGuest.xaml",
-              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmGuest.xaml",
-              "RelativeToolTip": "WPF\\frmGuest.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-25T04:27:35.768Z",
+              "WhenOpened": "2026-03-05T20:58:51.057Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmLogin.xaml",
-              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmLogin.xaml",
-              "RelativeDocumentMoniker": "WPF\\frmLogin.xaml",
-              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmLogin.xaml",
-              "RelativeToolTip": "WPF\\frmLogin.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-25T03:52:42.342Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmAdmin.xaml",
-              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmAdmin.xaml",
-              "RelativeDocumentMoniker": "WPF\\frmAdmin.xaml",
-              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmAdmin.xaml",
-              "RelativeToolTip": "WPF\\frmAdmin.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-25T03:32:49.815Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "frmAdmin.xaml.cs",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmAdmin.xaml.cs",
               "RelativeDocumentMoniker": "WPF\\frmAdmin.xaml.cs",
               "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmAdmin.xaml.cs",
               "RelativeToolTip": "WPF\\frmAdmin.xaml.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T03:32:46.554Z"
+              "WhenOpened": "2026-03-05T20:58:35.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthenService.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\AuthenService.cs",
+              "RelativeDocumentMoniker": "WPF\\Service\\AuthenService.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\AuthenService.cs",
+              "RelativeToolTip": "WPF\\Service\\AuthenService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T20:49:18.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IAuthenService.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\IAuthenService.cs",
+              "RelativeDocumentMoniker": "WPF\\Service\\IAuthenService.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\IAuthenService.cs",
+              "RelativeToolTip": "WPF\\Service\\IAuthenService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T20:48:44.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "WPF\\ViewModel\\LoginViewModel.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\LoginViewModel.cs",
+              "RelativeToolTip": "WPF\\ViewModel\\LoginViewModel.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T20:40:23.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "WPF\\ViewModel\\RelayCommand.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\RelayCommand.cs",
+              "RelativeToolTip": "WPF\\ViewModel\\RelayCommand.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T20:18:32.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmLogin.xaml.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmLogin.xaml.cs",
+              "RelativeDocumentMoniker": "WPF\\frmLogin.xaml.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmLogin.xaml.cs",
+              "RelativeToolTip": "WPF\\frmLogin.xaml.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T20:13:45.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmLogin.xaml",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmLogin.xaml",
+              "RelativeDocumentMoniker": "WPF\\frmLogin.xaml",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmLogin.xaml",
+              "RelativeToolTip": "WPF\\frmLogin.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-05T20:10:21.151Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmGuest.xaml",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmGuest.xaml",
+              "RelativeDocumentMoniker": "WPF\\frmGuest.xaml",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmGuest.xaml",
+              "RelativeToolTip": "WPF\\frmGuest.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-05T20:10:18.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmAdmin.xaml",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmAdmin.xaml",
+              "RelativeDocumentMoniker": "WPF\\frmAdmin.xaml",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmAdmin.xaml",
+              "RelativeToolTip": "WPF\\frmAdmin.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-05T20:09:57.292Z",
+              "EditorCaption": ""
             }
           ]
         }

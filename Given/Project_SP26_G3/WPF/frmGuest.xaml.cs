@@ -19,7 +19,7 @@ namespace WPF
     /// </summary>
     public partial class frmGuest : Window
     {
-        public frmGuest()
+        public frmGuest(string name)
         {
             InitializeComponent();
         }

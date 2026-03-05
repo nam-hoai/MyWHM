@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WPF.ViewModel;
 
 namespace WPF
 {
@@ -22,6 +23,26 @@ namespace WPF
         public frmLogin()
         {
             InitializeComponent();
+            DataContext = new LoginViewModel();
+        }
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            txtVisiblePassword.Text = passBox.Password;
+        }
+        private void ShowPassword_Checked(object sender, RoutedEventArgs e)
+        {
+            txtVisiblePassword.Text = passBox.Password;
+
+            txtVisiblePassword.Visibility = Visibility.Visible;
+            passBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void ShowPassword_Unchecked(object sender, RoutedEventArgs e)
+        {
+            passBox.Password = txtVisiblePassword.Text;
+
+            passBox.Visibility = Visibility.Visible;
+            txtVisiblePassword.Visibility = Visibility.Collapsed;
         }
     }
 }
