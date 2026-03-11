@@ -5,7 +5,7 @@ using System.Windows.Input;
 using WPF.Service;
 
 namespace WPF.ViewModel;
-public class LoginViewModel : INotifyPropertyChanged
+public class LoginViewModel : BaseViewModel
 {
     private readonly IAuthenService _authenService;
 
@@ -110,12 +110,5 @@ public class LoginViewModel : INotifyPropertyChanged
     {
         MessageBox.Show("Good Bye!");
         Application.Current.Shutdown();
-    }
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    protected void OnPropertyChanged(string name)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

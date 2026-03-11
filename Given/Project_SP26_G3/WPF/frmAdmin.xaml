@@ -12,9 +12,25 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TabControl  Background="LightBlue" Margin="10" Grid.Row="0">
-            <TabItem Header="Account Management">
+            <TabItem Header="Account Management"
+                     DataContext="{Binding AccountVM}">
                 <StackPanel>
-                    <DataGrid x:Name="lstAccount" Margin="10" Width="700" AutoGenerateColumns="False" SelectionChanged="lstAccount_SelectionChanged">
+                    <DataGrid  ItemsSource="{Binding Accounts}" SelectedItem="{Binding SelectedAccount}"
+                               AutoGenerateColumns="False" Margin="10" Width="700">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <!-- Active -->
+                                    <DataTrigger Binding="{Binding Status}" Value="True">
+                                        <Setter Property="Background" Value="White"/>
+                                    </DataTrigger>
+                                    <!-- Deactive -->
+                                    <DataTrigger Binding="{Binding Status}" Value="False">
+                                        <Setter Property="Background" Value="Gray"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding PersonId}" Width="*"/>
                             <DataGridTextColumn Header="Name" Binding="{Binding PersonName}" Width="*"/>
@@ -22,7 +38,6 @@
                             <DataGridTextColumn Header="Date Of Birth" Binding="{Binding Birthdate}" Width="*"/>
                             <DataGridTextColumn Header="Address" Binding="{Binding Address}" Width="*"/>
                             <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="*"/>
-                            <DataGridTextColumn Header="Status" Binding="{Binding StatusText}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <GroupBox Header="Detail Info" Width="700" Margin="10" Background="LightGray">
@@ -30,44 +45,55 @@
                             <StackPanel Margin="5" Width="500">
                                 <WrapPanel>
                                     <Label Content="Person ID" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtId2" Width="350" Margin="5"/>
+                                    <TextBox Text="{Binding FormAccount.PersonId, Mode=TwoWay}" 
+                                             Width="350" Margin="5"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Person Name" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtName2" Width="350" Margin="5"/>
+                                    <TextBox Text="{Binding FormAccount.PersonName, Mode=TwoWay}" 
+                                             Width="350" Margin="5"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Password" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtPass" Width="350" Margin="5"/>
+                                    <TextBox Text="{Binding FormAccount.Password, Mode=TwoWay}" 
+                                             Width="350" Margin="5"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Date Of Birth" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <DatePicker x:Name="txtDob" Width="350" Margin="5"/>
+                                    <DatePicker SelectedDate="{Binding FormAccount.Birthdate, Mode=TwoWay}" 
+                                                Width="350" Margin="5"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Address" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtaddress" Width="350" Margin="5"/>
+                                    <TextBox Text="{Binding FormAccount.Address, Mode=TwoWay}" 
+                                             Width="350" Margin="5"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Phone" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtPhone" Width="350" Margin="5"/>
+                                    <TextBox Text="{Binding FormAccount.Phone, Mode=TwoWay}" 
+                                             Width="350" Margin="5"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Status" Width="100" Margin="5" FontWeight="Bold"/>
                                     <WrapPanel Width="350" Margin="5" VerticalAlignment="Center">
-                                        <RadioButton x:Name="rbEnable2" Content="Active" GroupName="Status" IsChecked="true"/>
-                                        <RadioButton x:Name="rbDisable2" Content="Deactive" GroupName="Status"/>
+                                        <RadioButton    Content="Active" GroupName="Status"
+                                                        IsChecked="{Binding FormAccount.Status,Mode=TwoWay,
+                                                                    UpdateSourceTrigger=PropertyChanged}" />
+
+                                        <RadioButton    Content="Deactive" GroupName="Status"
+                                                        IsChecked="{Binding FormAccount.Status,Mode=TwoWay,
+                                                                    UpdateSourceTrigger=PropertyChanged}" />
                                     </WrapPanel>
                                 </WrapPanel>
                             </StackPanel>
                             <StackPanel>
-                                <Button x:Name="btnAdd2" Content="ADD" Width="100" Margin="5" Click="btnAdd2_Click"/>
-                                <Button x:Name="btnEdit2" Content="EDIT" Width="100" Margin="5" Click="btnEdit2_Click"/>
-                                <Button x:Name="btnDelete2" Content="DELETE" Width="100" Margin="5" Click="btnDelete2_Click"/>
-                                <Button x:Name="btnSearch2" Content="SEARCH" Width="100" Margin="5" Click="btnSearch2_Click"/>
-                                <Button x:Name="btnReset2" Content="RESET" Width="100" Margin="5" Click="btnReset2_Click"/>
-                                <Button x:Name="btnBacklog2" Content="BACKLOG DATA" Width="100" Margin="5" Click="btnBacklog2_Click"/>
-                                <Button x:Name="btnGenData2" Content="GENERATE DATA" Width="100" Margin="5" Click="btnGenData2_Click"/>
+                                <Button Width="100" Margin="5" Content="ADD" Command="{Binding AddCommand}"/>
+                                <Button Width="100" Margin="5" Content="EDIT" Command="{Binding EditCommand}"/>
+                                <Button Width="100" Margin="5" Content="DELETE" Command="{Binding DeleteCommand}"/>
+                                <Button Width="100" Margin="5" Content="SEARCH" Command="{Binding SearchCommand}"/>
+                                <Button Width="100" Margin="5" Content="RESET" Command="{Binding ResetCommand}"/>
+                                <Button Width="100" Margin="5" Content="BACKLOG DATA" Command="{Binding BacklogCommand}"/>
+                                <Button Width="100" Margin="5" Content="GENERATE DATA" Command="{Binding ReportCommand}"/>
                             </StackPanel>
                         </WrapPanel>
                     </GroupBox>
@@ -107,15 +133,13 @@
                                 </WrapPanel>
                             </StackPanel>
                             <StackPanel>
-                                <StackPanel>
-                                    <Button x:Name="btnAdd1" Content="ADD" Width="100" Margin="5" Click="btnAdd1_Click"/>
-                                    <Button x:Name="btnEdit1" Content="EDIT" Width="100" Margin="5" Click="btnEdit1_Click"/>
-                                    <Button x:Name="btnDelete1" Content="DELETE" Width="100" Margin="5" Click="btnDelete1_Click"/>
-                                    <Button x:Name="btnSearch1" Content="SEARCH" Width="100" Margin="5" Click="btnSearch1_Click"/>
-                                    <Button x:Name="btnReset1" Content="RESET" Width="100" Margin="5" Click="btnReset1_Click"/>
-                                    <Button x:Name="btnBacklog1" Content="BACKLOG DATA" Width="100" Margin="5" Click="btnBacklog1_Click"/>
-                                    <Button x:Name="btnGenData1" Content="GENERATE DATA" Width="100" Margin="5" Click="btnGenData1_Click"/>
-                                </StackPanel>
+                                <Button Width="100" Margin="5" Content="ADD" Command="{Binding AddCommand}"/>
+                                <Button Width="100" Margin="5" Content="EDIT" Command="{Binding EditCommand}"/>
+                                <Button Width="100" Margin="5" Content="DELETE" Command="{Binding DeleteCommand}"/>
+                                <Button Width="100" Margin="5" Content="SEARCH" Command="{Binding SearchCommand}"/>
+                                <Button Width="100" Margin="5" Content="RESET" Command="{Binding ResetCommand}"/>
+                                <Button Width="100" Margin="5" Content="BACKLOG DATA" Command="{Binding BacklogCommand}"/>
+                                <Button Width="100" Margin="5" Content="GENERATE DATA" Command="{Binding ReportCommand}"/>
                             </StackPanel>
                         </WrapPanel>
                     </GroupBox>
@@ -185,13 +209,13 @@
                                 </WrapPanel>
                             </StackPanel>
                             <StackPanel>
-                                <Button x:Name="btnAdd" Content="ADD" Width="100" Margin="5" Click="btnAdd_Click"/>
-                                <Button x:Name="btnEdit" Content="EDIT" Width="100" Margin="5" Click="btnEdit_Click"/>
-                                <Button x:Name="btnDelete" Content="DELETE" Width="100" Margin="5" Click="btnDelete_Click"/>
-                                <Button x:Name="btnSearch" Content="SEARCH" Width="100" Margin="5" Click="btnSearch_Click"/>
-                                <Button x:Name="btnReset" Content="RESET" Width="100" Margin="5" Click="btnReset_Click"/>
-                                <Button x:Name="btnBacklog" Content="BACKLOG DATA" Width="100" Margin="5" Click="btnBacklog_Click"/>
-                                <Button x:Name="btnGenData" Content="GENERATE DATA" Width="100" Margin="5" Click="btnGenData_Click"/>
+                                <Button Width="100" Margin="5" Content="ADD" Command="{Binding AddCommand}"/>
+                                <Button Width="100" Margin="5" Content="EDIT" Command="{Binding EditCommand}"/>
+                                <Button Width="100" Margin="5" Content="DELETE" Command="{Binding DeleteCommand}"/>
+                                <Button Width="100" Margin="5" Content="SEARCH" Command="{Binding SearchCommand}"/>
+                                <Button Width="100" Margin="5" Content="RESET" Command="{Binding ResetCommand}"/>
+                                <Button Width="100" Margin="5" Content="BACKLOG DATA" Command="{Binding BacklogCommand}"/>
+                                <Button Width="100" Margin="5" Content="GENERATE DATA" Command="{Binding ReportCommand}"/>
                             </StackPanel>
                         </WrapPanel>
                     </GroupBox>
