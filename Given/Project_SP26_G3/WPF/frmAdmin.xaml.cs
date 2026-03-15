@@ -22,5 +22,10 @@ namespace WPF
             InitializeComponent();
             DataContext = new AdminViewModel();
         }
+        //public frmAdmin()
+        //{
+        //    InitializeComponent();
+        //    DataContext = new AdminViewModel();
+        //}
     }
 }

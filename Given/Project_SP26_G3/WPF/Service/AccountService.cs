@@ -34,18 +34,23 @@ public class AccountService : IAccountService
         return _context.Persons.ToList();
     }
 
-    public List<Person> Search(string name, string phone, string address)
+    public List<Person> Search(string key)
     {
         var query = _context.Persons.AsQueryable();
 
-        if (!string.IsNullOrWhiteSpace(name))
-            query = query.Where(p => p.PersonName.Contains(phone));
+        if (!string.IsNullOrWhiteSpace(key))
+        {
+            //search by single word
+            var keywords = key.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-        if (!string.IsNullOrWhiteSpace(phone))
-            query = query.Where(p => p.Phone.Contains(phone));
-
-        if (!string.IsNullOrWhiteSpace(address))
-            query = query.Where(p => p.Address.Contains(address));
+            foreach (var word in keywords)
+            {
+                query = query.Where(p =>
+                    p.PersonName.Contains(word) ||
+                    (p.Phone??"").Contains(word) ||
+                    (p.Address??"").Contains(word));
+            }
+        }
 
         return query.ToList();
     }

@@ -9,14 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="appsetting.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="..\..\1746650.png" Link="1746650.png" />
-    <Resource Include="appsetting.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +31,12 @@
     <ApplicationDefinition Update="App.xaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ApplicationDefinition>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

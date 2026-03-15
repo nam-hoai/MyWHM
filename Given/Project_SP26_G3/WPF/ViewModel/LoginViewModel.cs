@@ -14,8 +14,8 @@ public class LoginViewModel : BaseViewModel
         _authenService = new AuthenService();
 
         LoginCommand = new RelayCommand<object>(Login);
-        CloseCommand = new RelayCommand<object>(Close);
-        ForgetCommand = new RelayCommand<object>(ForgetPassword);
+        CloseCommand = new RelayCommand(Close);
+        ForgetCommand = new RelayCommand(ForgetPassword);
     }
 
     private string _username = null!;
@@ -86,7 +86,7 @@ public class LoginViewModel : BaseViewModel
         }
     }
 
-    private void ForgetPassword(object parameter)
+    private void ForgetPassword()
     {
         if (string.IsNullOrEmpty(Username))
         {
@@ -106,7 +106,7 @@ public class LoginViewModel : BaseViewModel
         }
     }
 
-    private void Close(object parameter)
+    private void Close()
     {
         MessageBox.Show("Good Bye!");
         Application.Current.Shutdown();

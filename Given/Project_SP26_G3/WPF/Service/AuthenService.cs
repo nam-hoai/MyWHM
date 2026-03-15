@@ -20,17 +20,17 @@ namespace WPF.Service
                 .FirstOrDefault(p => p.PersonName == username);
 
             if (user == null)
-                return null;
+                return null!;
 
             if (user.Password != password)
-                return null;
+                return null!;
 
             return user;
         }
 
         public Person GetUser(string username)
         {
-            return _context.Persons.FirstOrDefault(p => p.PersonName == username);
+            return _context.Persons.FirstOrDefault(p => p.PersonName == username)!;
         }
     }
 }

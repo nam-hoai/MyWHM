@@ -13,6 +13,6 @@ namespace WPF.Service
         void Add(Person person);
         void Update(Person person);
         void Delete(int id);
-        List<Person> Search(string name, string phone, string address);
+        List<Person> Search(string key);
     }
 }

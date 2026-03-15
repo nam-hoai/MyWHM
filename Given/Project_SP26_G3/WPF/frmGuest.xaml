@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
         Title="frmGuest" Height="650" Width="800">
-    <Grid>
+    <!--" Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"/>
             <RowDefinition Height="*"/>
@@ -20,7 +20,7 @@
                             <DataGridTextColumn Header="Name" Binding="{Binding ProductName}"/>
                             <DataGridTextColumn Header="Code" Binding="{Binding ProductCode}"/>
                             <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
-                            <!--<DataGridTextColumn Header="Sender" Binding="{Binding Sender}"/>-->
+                            <DataGridTextColumn Header="Sender" Binding="{Binding Sender}"/>
                             <DataGridTextColumn Header="Location" Binding="{Binding Location}"/>
                             <DataGridTextColumn Header="Category Name" Binding="{Binding CatName}"/>
                             <DataGridTextColumn Header="Dat Stock In" Binding="{Binding DateIn}"/>
@@ -90,5 +90,5 @@
         <WrapPanel Grid.Row="1">
             <Button x:Name="btnOut" Content="Exit" Width="100" Margin="10" Click="btnOut_Click"/>
         </WrapPanel>
-    </Grid>
+    </Grid-->
 </Window>

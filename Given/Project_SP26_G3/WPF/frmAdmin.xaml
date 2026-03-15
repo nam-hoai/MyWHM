@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
         Title="AdminDashBoard" Height="650" Width="800">
+    <Window.Resources>
+        <local:InverseBoolConverter x:Key="InverseBoolConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"/>
@@ -74,16 +77,19 @@
                                              Width="350" Margin="5"/>
                                 </WrapPanel>
                                 <WrapPanel>
-                                    <Label Content="Status" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <WrapPanel Width="350" Margin="5" VerticalAlignment="Center">
-                                        <RadioButton    Content="Active" GroupName="Status"
-                                                        IsChecked="{Binding FormAccount.Status,Mode=TwoWay,
-                                                                    UpdateSourceTrigger=PropertyChanged}" />
+                                    <Label Content="Status" Width="100"/>
+                                    <RadioButton Content="Active"
+                                                 GroupName="StatusFilter"
+                                                 IsChecked="{Binding StatusFilter,
+                                                             Mode=TwoWay,
+                                                             UpdateSourceTrigger=PropertyChanged}" />
 
-                                        <RadioButton    Content="Deactive" GroupName="Status"
-                                                        IsChecked="{Binding FormAccount.Status,Mode=TwoWay,
-                                                                    UpdateSourceTrigger=PropertyChanged}" />
-                                    </WrapPanel>
+                                    <RadioButton Content="Deactive"
+                                                 GroupName="StatusFilter"
+                                                 IsChecked="{Binding StatusFilter,
+                                                             Mode=TwoWay,
+                                                             Converter={StaticResource InverseBoolConverter},
+                                                             UpdateSourceTrigger=PropertyChanged}"/>
                                 </WrapPanel>
                             </StackPanel>
                             <StackPanel>
@@ -99,7 +105,8 @@
                     </GroupBox>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="Wasehose Configuration">
+            <!--TabItem Header="Wasehose Configuration"
+                     DataContext="WarehouseVM">
                 <StackPanel>
                     <DataGrid x:Name="lstHouse" Margin="10" Width="700" AutoGenerateColumns="False" SelectionChanged="lstHouse_SelectionChanged">
                         <DataGrid.Columns>
@@ -263,10 +270,10 @@
                         </Grid>
                     </GroupBox>
                 </StackPanel>
-            </TabItem>
+            </TabItem-->
         </TabControl>
         <WrapPanel Grid.Row="1">
-            <Button x:Name="btnOut" Content="Exit" Width="100" Margin="10" Click="btnOut_Click"/>
+            <Button Width="100" Margin="10" Content="Exit"  Command="{Binding OutCommand}"/>
         </WrapPanel>
     </Grid>
 </Window>

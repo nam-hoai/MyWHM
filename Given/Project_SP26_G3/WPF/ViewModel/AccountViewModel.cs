@@ -50,7 +50,28 @@ namespace WPF.ViewModel
                 OnPropertyChanged();
             }
         }
+        private bool _isStatusFilterEnabled = false;
+        public bool IsStatusFilterEnabled
+        {
+            get => _isStatusFilterEnabled;
+            set
+            {
+                _isStatusFilterEnabled = value;
+                OnPropertyChanged();
+            }
+        }
 
+        private bool _statusFilter = true;   // UI default: Active
+        public bool StatusFilter
+        {
+            get => _statusFilter;
+            set
+            {
+                _statusFilter = value;
+                IsStatusFilterEnabled = true;   // active filter if only click radiobutton
+                OnPropertyChanged();
+            }
+        }
         public ICommand AddCommand { get; }
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
@@ -103,7 +124,8 @@ namespace WPF.ViewModel
         //search by name - i'll update it to search by all thing soon
         private void Search()
         {
-            var result = _service.Search(FormAccount.PersonName, FormAccount.Phone, FormAccount.Address);
+            string key = $"{FormAccount.PersonName} {FormAccount.Phone} {FormAccount.Address}";
+            var result = _service.Search(key);
 
             Accounts = new ObservableCollection<Person>(result);
 
@@ -112,7 +134,7 @@ namespace WPF.ViewModel
         private void Reset()
         {
             FormAccount = new Person();
-            SelectedAccount = null;
+            SelectedAccount = null!;
         }
     }
 }
