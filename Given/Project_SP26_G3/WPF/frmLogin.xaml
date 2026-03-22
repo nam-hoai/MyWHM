@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
+        xmlns:helper="clr-namespace:WPF"
         mc:Ignorable="d"
         Title="Login" Height="450" Width="800">
-    
+
     <Grid Background="LightSkyBlue">
         <StackPanel Background="LightGreen" Margin="50">
-            <Label Content="Login In" 
+            <Label Content="Welcome to Warehourse Management Systemt" 
                    HorizontalAlignment="Center"
                    FontSize="24"
                    FontWeight="Bold"
@@ -33,14 +34,15 @@
                                          Width="200"
                                          Margin="10"
                                          HorizontalAlignment="Left"
-                                         PasswordChanged="PasswordBox_PasswordChanged"/>
-                            <!-- TextBox display password -->
+                                         helper:PasswordHelper.Password="{Binding Password, Mode=TwoWay}"/>
+                            <!-- display password -->
                             <TextBox    x:Name="txtVisiblePassword"
                                         Width="200"
                                         Margin="10"
-                                        Visibility="Collapsed"/>
+                                        Visibility="Collapsed"
+                                        Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
-                        <!-- checkbox show password -->
+                        <!-- show password -->
                         <CheckBox   Content="Show Password"
                                     Margin="10"
                                     Checked="ShowPassword_Checked"
@@ -51,8 +53,7 @@
                         <Button Content="Login" 
                                 Width="100" 
                                 Margin="10" 
-                                Command="{Binding LoginCommand}"
-                                CommandParameter="{Binding ElementName=passBox}"/>
+                                Command="{Binding LoginCommand}"/>
                         <!-- Button forget password -->
                         <Button Content="Forget Password" 
                                 Width="100" 

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using WPF.Models;
 using WPF.Service;
@@ -22,6 +23,8 @@ namespace WPF.ViewModel
             set
             {
                 _selectedAccount = value;
+                (EditCommand as RelayCommand)?.RaiseCanExecuteChanged();
+                (DeleteCommand as RelayCommand)?.RaiseCanExecuteChanged();
                 OnPropertyChanged();
 
                 if (value != null)
@@ -34,7 +37,8 @@ namespace WPF.ViewModel
                         Birthdate = value.Birthdate,
                         Address = value.Address,
                         Phone = value.Phone,
-                        Status = value.Status
+                        Status = value.Status,
+                        RoleId = value.RoleId
                     };
                 }
             }
@@ -85,7 +89,7 @@ namespace WPF.ViewModel
             _service = new AccountService();
             Accounts = new ObservableCollection<Person>();
             LoadData();
-          
+
             AddCommand = new RelayCommand(Add);
             EditCommand = new RelayCommand(Edit, () => SelectedAccount != null);
             DeleteCommand = new RelayCommand(Delete, () => SelectedAccount != null);
@@ -94,37 +98,94 @@ namespace WPF.ViewModel
             //BacklogCommand = new RelayCommand(Backlog);
             //ReportCommand = new RelayCommand(Report);
 
-            LoadData();
         }
         private void LoadData()
         {
             Accounts = new ObservableCollection<Person>(_service.GetAll());
+            OnPropertyChanged(nameof(Accounts));
         }
         private void Add()
         {
-            _service.Add(FormAccount);
-            LoadData();
-            Reset();
+            try
+            {
+                //validation
+                if (string.IsNullOrWhiteSpace(FormAccount.PersonName))
+                {
+                    MessageBox.Show("Name required");
+                    return;
+                }
+                if (FormAccount.Birthdate == null)
+                {
+                    MessageBox.Show("Birthdate required");
+                    return;
+                }
+                if (FormAccount.Password == null)
+                {
+                    MessageBox.Show("Password required");
+                    return;
+                }
+                //set role for normal user
+                FormAccount.RoleId = 2;
+
+                _service.Add(FormAccount);
+                MessageBox.Show($"Added {FormAccount.PersonName} success");
+                Reset();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}; Detail: {ex.InnerException}");
+            }
         }
         private void Edit()
         {
             if (SelectedAccount == null) return;
+            try
+            {
+                if (string.IsNullOrWhiteSpace(FormAccount.PersonName))
+                {
+                    MessageBox.Show("Person name is required");
+                    return;
+                }
+                var updated = new Person
+                {
+                    PersonId = SelectedAccount.PersonId,
+                    PersonName = FormAccount.PersonName,
+                    Password = FormAccount.Password,
+                    Address = FormAccount.Address,
+                    Phone = FormAccount.Phone,
+                    Birthdate = FormAccount.Birthdate,
+                    Status = FormAccount.Status,
+                    RoleId = 2 //Default RoleId = 2 for normal user
+                };
 
-            _service.Update(SelectedAccount);
-            LoadData();
-            Reset();
+                _service.Update(updated);
+                MessageBox.Show($"Update {FormAccount.PersonName} success");
+                Reset();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message} - Detail: {ex.InnerException?.Message ?? "N/A"}");
+            }
         }
         private void Delete()
         {
             if (SelectedAccount == null) return;
-            _service.Delete(SelectedAccount.PersonId);
-            LoadData();
-            Reset();
+            try
+            {
+                _service.Delete(SelectedAccount);
+                MessageBox.Show($"Deleted {SelectedAccount.PersonName} sucess");
+                Reset();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message} - Detail: {ex.InnerException?.Message ?? "N/A"}");
+            }
+            
         }
         //search by name - i'll update it to search by all thing soon
         private void Search()
         {
-            string key = $"{FormAccount.PersonName} {FormAccount.Phone} {FormAccount.Address}";
+            string key = $"{FormAccount.PersonName} {FormAccount.Phone} {FormAccount.Address} {FormAccount.Status}";
             var result = _service.Search(key);
 
             Accounts = new ObservableCollection<Person>(result);
@@ -133,6 +194,7 @@ namespace WPF.ViewModel
         }
         private void Reset()
         {
+            LoadData();
             FormAccount = new Person();
             SelectedAccount = null!;
         }

@@ -98,6 +98,8 @@ create table [Products](
 	constraint [fk_product_categories] foreign key ([CatId]) references [Categories]([CatId]),
 	constraint [fk_product_person] foreign key ([Sender]) references [Persons]([PersonName]),
 	constraint [fk_product_warehouse] foreign key ([Location]) references [Warehouses]([WarehouseName])
+	on update cascade
+	on delete cascade
 ) on [primary]
 go
 /****** Query: INSERT *****/
@@ -128,3 +130,4 @@ select * from [dbo].[Categories]
 select * from [dbo].[Persons]
 select * from [dbo].[Warehouses]
 select * from [dbo].[Products]
+

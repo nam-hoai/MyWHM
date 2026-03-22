@@ -20,12 +20,8 @@ namespace WPF
         public frmAdmin(string name)
         {
             InitializeComponent();
+            Title = $"Wlecome {name}";
             DataContext = new AdminViewModel();
         }
-        //public frmAdmin()
-        //{
-        //    InitializeComponent();
-        //    DataContext = new AdminViewModel();
-        //}
     }
 }

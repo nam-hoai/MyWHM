@@ -11,7 +11,7 @@ public partial class Person
 
     public string Password { get; set; } = null!;
 
-    public DateTime Birthdate { get; set; }
+    public DateTime? Birthdate { get; set; }
 
     public string? Address { get; set; }
 

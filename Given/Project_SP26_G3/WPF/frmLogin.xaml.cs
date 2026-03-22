@@ -25,10 +25,6 @@ namespace WPF
             InitializeComponent();
             DataContext = new LoginViewModel();
         }
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            txtVisiblePassword.Text = passBox.Password;
-        }
         private void ShowPassword_Checked(object sender, RoutedEventArgs e)
         {
             txtVisiblePassword.Text = passBox.Password;

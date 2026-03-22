@@ -14,8 +14,7 @@ namespace WPF.ViewModel
         public WarehouseViewModel WarehouseVM { get; set; }
         public ProductViewModel ProductVM { get; set; }
         public ReportViewModel ReportVM { get; set; }
-
-        public ICommand OutCammand { get; }
+        public ICommand OutCommand { get; }
 
         public AdminViewModel()
         {
@@ -24,9 +23,9 @@ namespace WPF.ViewModel
             ProductVM = new ProductViewModel();
             ReportVM = new ReportViewModel();
 
-            OutCammand = new RelayCommand(Out);
+            OutCommand = new RelayCommand<Window>(Out);
         }
-        private void Out()
+        private void Out(Window window)
         {
             MessageBoxResult rs = MessageBox.Show(
                 "Do you want exit",
@@ -40,7 +39,7 @@ namespace WPF.ViewModel
                 frmLogin login = new frmLogin();
                 //_backlog.SaveToFile(BACKLOG_FILE);
                 login.Show();
-                Application.Current.MainWindow.Close();
+                window.Close();
             }
         }
     }

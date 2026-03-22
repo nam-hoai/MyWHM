@@ -25,20 +25,20 @@ public partial class MyContext : DbContext
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<Warehouse> Warehouses { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
         optionsBuilder.EnableDetailedErrors()
-                     .EnableSensitiveDataLogging(); // Chỉ dùng trong development
+                     .EnableSensitiveDataLogging();
         var ConnectionString = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetConnectionString("MyCnn");
         optionsBuilder.UseSqlServer(ConnectionString);
     }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CatId).HasName("PK__Categori__6A1C8AFAC7C6ABAD");
+            entity.HasKey(e => e.CatId).HasName("PK__Categori__6A1C8AFA5463E1A2");
 
             entity.Property(e => e.CatName)
                 .HasMaxLength(50)
@@ -47,7 +47,7 @@ public partial class MyContext : DbContext
 
         modelBuilder.Entity<Person>(entity =>
         {
-            entity.HasKey(e => e.PersonId).HasName("PK__Persons__AA2FFBE5FC10E3DD");
+            entity.HasKey(e => e.PersonId).HasName("PK__Persons__AA2FFBE5EC2811D8");
 
             entity.HasIndex(e => e.PersonName, "uq_PersonName").IsUnique();
 
@@ -68,7 +68,7 @@ public partial class MyContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6CD03EA658F");
+            entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6CDF5834CB9");
 
             entity.HasIndex(e => e.ProductCode, "uq_ProductCode").IsUnique();
 
@@ -87,30 +87,31 @@ public partial class MyContext : DbContext
 
             entity.HasOne(d => d.Cat).WithMany(p => p.Products)
                 .HasForeignKey(d => d.CatId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_product_categories");
 
             entity.HasOne(d => d.LocationNavigation).WithMany(p => p.Products)
                 .HasPrincipalKey(p => p.WarehouseName)
                 .HasForeignKey(d => d.Location)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("fk_product_warehouse");
 
             entity.HasOne(d => d.SenderNavigation).WithMany(p => p.Products)
                 .HasPrincipalKey(p => p.PersonName)
                 .HasForeignKey(d => d.Sender)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("fk_product_person");
         });
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.RoleId).HasName("PK__Roles__8AFACE1A15BCC0BF");
+            entity.HasKey(e => e.RoleId).HasName("PK__Roles__8AFACE1A8C7A405F");
 
             entity.Property(e => e.RoleName).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Warehouse>(entity =>
         {
-            entity.HasKey(e => e.WarehouseId).HasName("PK__Warehous__2608AFF93DD6C00F");
+            entity.HasKey(e => e.WarehouseId).HasName("PK__Warehous__2608AFF9FE2C0038");
 
             entity.HasIndex(e => e.WarehouseName, "uq_Wname").IsUnique();
 

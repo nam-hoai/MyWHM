@@ -12,7 +12,7 @@ namespace WPF.Service
         private readonly MyContext _context;
         public AuthenService()
         {
-            _context = new();
+            _context = new MyContext();
         }
         public Person Login(string username, string password)
         {

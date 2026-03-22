@@ -13,7 +13,7 @@ public class LoginViewModel : BaseViewModel
     {
         _authenService = new AuthenService();
 
-        LoginCommand = new RelayCommand<object>(Login);
+        LoginCommand = new RelayCommand(Login);
         CloseCommand = new RelayCommand(Close);
         ForgetCommand = new RelayCommand(ForgetPassword);
     }
@@ -29,29 +29,31 @@ public class LoginViewModel : BaseViewModel
             OnPropertyChanged(nameof(Username));
         }
     }
-
+    private string _password = null!;
+    public string Password
+    {
+        get => _password;
+        set
+        {
+            _password = value;
+            OnPropertyChanged();
+        }
+    }
     public ICommand LoginCommand { get; }
 
     public ICommand CloseCommand { get; }
 
     public ICommand ForgetCommand { get; }
 
-    private void Login(object parameter)
+    private void Login()
     {
-        var passBox = parameter as PasswordBox;
-
-        if (passBox == null)
-            return;
-
-        string password = passBox.Password;
-
         if (string.IsNullOrEmpty(Username))
         {
             MessageBox.Show("Username is required");
             return;
         }
 
-        if (string.IsNullOrEmpty(password))
+        if (string.IsNullOrEmpty(Password))
         {
             MessageBox.Show("Password is required");
             return;
@@ -59,7 +61,7 @@ public class LoginViewModel : BaseViewModel
 
         try
         {
-            var user = _authenService.Login(Username, password);
+            var user = _authenService.Login(Username, Password);
 
             if (user == null)
             {
