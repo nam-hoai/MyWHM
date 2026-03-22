@@ -3,28 +3,44 @@
   "WorkspaceRootPath": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmadmin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmadmin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\warehouseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\warehouseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\warehouseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\warehouseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmadmin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmadmin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\iwarehouseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\iwarehouseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\models\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\models\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "AccountService.cs",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\AccountService.cs",
               "RelativeDocumentMoniker": "WPF\\Service\\AccountService.cs",
@@ -51,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "AdminViewModel.cs",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\AdminViewModel.cs",
               "RelativeDocumentMoniker": "WPF\\ViewModel\\AdminViewModel.cs",
@@ -77,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "frmAdmin.xaml.cs",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmAdmin.xaml.cs",
               "RelativeDocumentMoniker": "WPF\\frmAdmin.xaml.cs",
@@ -90,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AccountViewModel.cs",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\AccountViewModel.cs",
               "RelativeDocumentMoniker": "WPF\\ViewModel\\AccountViewModel.cs",
@@ -98,6 +114,19 @@
               "RelativeToolTip": "WPF\\ViewModel\\AccountViewModel.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-17T03:09:04.725Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IAccountService.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\IAccountService.cs",
+              "RelativeDocumentMoniker": "WPF\\Service\\IAccountService.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\IAccountService.cs",
+              "RelativeToolTip": "WPF\\Service\\IAccountService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T08:00:43.692Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
@@ -111,14 +140,50 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IAccountService.cs",
-              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\IAccountService.cs",
-              "RelativeDocumentMoniker": "WPF\\Service\\IAccountService.cs",
-              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\IAccountService.cs",
-              "RelativeToolTip": "WPF\\Service\\IAccountService.cs",
+              "DocumentIndex": 7,
+              "Title": "Warehouse.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Models\\Warehouse.cs",
+              "RelativeDocumentMoniker": "WPF\\Models\\Warehouse.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Models\\Warehouse.cs",
+              "RelativeToolTip": "WPF\\Models\\Warehouse.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-20T08:00:43.692Z",
+              "WhenOpened": "2026-03-22T12:53:01.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WarehouseService.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\WarehouseService.cs",
+              "RelativeDocumentMoniker": "WPF\\Service\\WarehouseService.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\WarehouseService.cs",
+              "RelativeToolTip": "WPF\\Service\\WarehouseService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T11:24:03.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IWareHouseService.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\IWareHouseService.cs",
+              "RelativeDocumentMoniker": "WPF\\Service\\IWareHouseService.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\IWareHouseService.cs",
+              "RelativeToolTip": "WPF\\Service\\IWareHouseService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T11:17:37.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WarehouseViewModel.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\WarehouseViewModel.cs",
+              "RelativeDocumentMoniker": "WPF\\ViewModel\\WarehouseViewModel.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\WarehouseViewModel.cs",
+              "RelativeToolTip": "WPF\\ViewModel\\WarehouseViewModel.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T11:15:38.38Z",
               "EditorCaption": ""
             }
           ]

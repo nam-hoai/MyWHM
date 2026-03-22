@@ -180,7 +180,6 @@ namespace WPF.ViewModel
             {
                 MessageBox.Show($"Error: {ex.Message} - Detail: {ex.InnerException?.Message ?? "N/A"}");
             }
-            
         }
         //search by name - i'll update it to search by all thing soon
         private void Search()

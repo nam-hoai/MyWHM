@@ -23,5 +23,34 @@ namespace WPF
             Title = $"Wlecome {name}";
             DataContext = new AdminViewModel();
         }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.Text, 0);
+        }
+        private void NumberOnly_Pasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                var text = (string)e.DataObject.GetData(typeof(string));
+                if (!int.TryParse(text, out _))
+                    e.CancelCommand();
+            }
+            else
+            {
+                e.CancelCommand();
+            }
+        }
+
+        private void Size_LostFocus(object sender, RoutedEventArgs e)
+        {
+            var tb = sender as TextBox;
+
+            if (string.IsNullOrWhiteSpace(tb.Text))
+            {
+                MessageBox.Show("Size is required");
+                tb.Text = "0";
+            }
+        }
     }
 }
