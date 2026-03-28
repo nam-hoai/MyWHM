@@ -10,31 +10,29 @@ namespace WPF.Service
 {
     public class WarehouseService : IWareHouseService
     {
-        private readonly MyContext _context;
 
-        public WarehouseService()
-        {
-            _context = new MyContext();
-        }
+        public WarehouseService(){}
 
         public void Add(Warehouse house)
         {
+            using var _context = new MyContext();
             //check duplication
             if (_context.Warehouses.Any(p => p.WarehouseName.Equals(house.WarehouseName)))
-            {
                 throw new Exception($"{house.WarehouseName} is duplicated, try with another");
-            }
-            if (_context.Warehouses.Any(p => p.WarehouseId == house.WarehouseId))
-            {
-                Warehouse w = _context.Warehouses.First(p => p.WarehouseId == house.WarehouseId);
-                throw new Exception($"Warehouse ID: {house.WarehouseId} is used for {w.WarehouseName.ToString()}, try with another");
-            }
+            
+            var existing = _context.Warehouses.First(p => p.WarehouseId == house.WarehouseId);
+
+            if (existing!=null)
+                throw new Exception($"Warehouse ID: {house.WarehouseId} is used for {existing.WarehouseName.ToString()}, try with another");
+            //Add
             _context.Warehouses.Add(house);
+
             _context.SaveChanges();
         }
 
         public void Delete(Warehouse house)
         {
+            using var _context = new MyContext();
             var w = GetWareHouse(house.WarehouseId);
 
             if (w != null)
@@ -46,18 +44,24 @@ namespace WPF.Service
 
         public List<Warehouse> GetAll()
         {
-            return _context.Warehouses.ToList();
+            using var _context = new MyContext();
+            return _context.Warehouses.AsNoTracking().ToList();
         }
-
+        private Warehouse? FindWarehouse(int id)
+        {
+            using var _context = new MyContext();
+            return _context.Warehouses.FirstOrDefault(p => p.WarehouseId == id);
+        }
         public Warehouse GetWareHouse(int id)
         {
-            return _context.Warehouses.FirstOrDefault(p => p.WarehouseId == id)
+            return FindWarehouse(id)
             ?? throw new Exception($"No found warehouse with ID = {id}");
         }
 
         public List<Warehouse> Search(string key)
         {
-            var query = _context.Warehouses.AsQueryable();
+            using var _context = new MyContext();
+            var query = _context.Warehouses.AsNoTracking().AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(key))
             {
@@ -68,7 +72,7 @@ namespace WPF.Service
                 {
                     query = query.Where(p =>
                         p.WarehouseName.Contains(word) ||
-                        p.Size.ToString().Contains(word) ||
+                        (p.Size.ToString()??"").Contains(word) ||
                         p.Status.ToString().Equals(word));
                 }
             }
@@ -80,7 +84,8 @@ namespace WPF.Service
         {
             try
             {
-                //Find Person
+                using var _context = new MyContext();
+                //Find warehouse
                 var existing = _context.Warehouses.FirstOrDefault(x => x.WarehouseId == house.WarehouseId);
                 if (existing == null)
                 {
@@ -93,7 +98,7 @@ namespace WPF.Service
 
                 if (isDuplicate)
                     throw new Exception("Warehouse name already exists");
-                // Update Person
+                // Update warehouse
                 existing.WarehouseName = house.WarehouseName;
                 existing.Size = house.Size;
                 existing.Status = house.Status;

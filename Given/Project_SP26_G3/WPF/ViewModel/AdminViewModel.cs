@@ -37,7 +37,7 @@ namespace WPF.ViewModel
             {
                 MessageBox.Show("Thank for using program");
                 frmLogin login = new frmLogin();
-                //_backlog.SaveToFile(BACKLOG_FILE);
+                
                 login.Show();
                 window.Close();
             }

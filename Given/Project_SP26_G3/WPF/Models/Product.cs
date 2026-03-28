@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace WPF.Models;
 
@@ -19,15 +20,16 @@ public partial class Product
 
     public int CatId { get; set; }
 
-    public DateTime DateIn { get; set; }
+    public DateTime? DateIn { get; set; }
 
     public DateTime? DateOut { get; set; }
 
     public bool Status { get; set; }
 
+    [JsonIgnore]
     public virtual Category Cat { get; set; } = null!;
-
+    [JsonIgnore]
     public virtual Warehouse? LocationNavigation { get; set; }
-
+    [JsonIgnore]
     public virtual Person? SenderNavigation { get; set; }
 }

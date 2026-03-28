@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace WPF.Models;
 
@@ -20,8 +21,8 @@ public partial class Person
     public bool Status { get; set; }
 
     public int RoleId { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
-
+    [JsonIgnore]
     public virtual Role Role { get; set; } = null!;
 }

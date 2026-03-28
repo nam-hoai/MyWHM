@@ -150,9 +150,7 @@
                                 <WrapPanel>
                                     <Label Content="Size" Width="120" Margin="5" FontWeight="Bold"/>
                                     <TextBox Width="350" Margin="5"
-                                             Text="{Binding FormWarehouse.Size, Mode=TwoWay}" 
-                                             PreviewTextInput="TextBox_PreviewTextInput" 
-                                             DataObject.Pasting="NumberOnly_Pasting" LostFocus="Size_LostFocus"/>
+                                             Text="{Binding FormWarehouse.Size, Mode=TwoWay}"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Status" Width="120" Margin="5" FontWeight="Bold"/>
@@ -183,10 +181,11 @@
                     </GroupBox>
                 </StackPanel>
             </TabItem>
-            <!--
-            <TabItem Header="Product Catalog">
+            <TabItem Header="Product Catalog"
+                     DataContext="{Binding ProductVM}">
                 <StackPanel>
-                    <DataGrid x:Name="lstProduct" Margin="10" Width="700" AutoGenerateColumns="False" SelectionChanged="lstProduct_SelectionChanged">
+                    <DataGrid Margin="10" Width="700" AutoGenerateColumns="False"
+                              ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding ProductId}"/>
                             <DataGridTextColumn Header="Name" Binding="{Binding ProductName}"/>
@@ -194,56 +193,102 @@
                             <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
                             <DataGridTextColumn Header="Sender" Binding="{Binding Sender}"/>
                             <DataGridTextColumn Header="Location" Binding="{Binding Location}"/>
-                            <DataGridTextColumn Header="Category Name" Binding="{Binding CatName}"/>
+                            <DataGridTextColumn Header="Category Name" Binding="{Binding Cat.CatName}"/>
                             <DataGridTextColumn Header="Dat Stock In" Binding="{Binding DateIn}"/>
                             <DataGridTextColumn Header="Date Stock Out" Binding="{Binding DateOut}"/>
-                            <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
                         </DataGrid.Columns>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <!-- Active -->
+                                    <DataTrigger Binding="{Binding Status}" Value="True">
+                                        <Setter Property="Background" Value="White"/>
+                                    </DataTrigger>
+                                    <!-- Deactive -->
+                                    <DataTrigger Binding="{Binding Status}" Value="False">
+                                        <Setter Property="Background" Value="Gray"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
                     </DataGrid>
                     <GroupBox Header="Detail Info" Width="700" Margin="10" Background="LightGray">
                         <WrapPanel Margin="5">
                             <StackPanel Margin="5" Width="500">
                                 <WrapPanel>
                                     <Label Content="Product ID" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtId" Width="350" Margin="5" IsReadOnly="true"/>
+                                    <TextBox Width="350" Margin="5" 
+                                             Text="{Binding FormProduct.ProductId, Mode=TwoWay}"
+                                             IsReadOnly="true"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Product Name" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtName" Width="350" Margin="5"/>
+                                    <TextBox Width="350" Margin="5"
+                                             Text="{Binding FormProduct.ProductName, Mode=TwoWay}"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Product Code" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtCode" Width="350" Margin="5"/>
+                                    <TextBox Width="350" Margin="5"
+                                             Text="{Binding FormProduct.ProductCode, Mode=TwoWay}"
+                                             IsReadOnly="true"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Quantity" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtQuantity" Width="350" Margin="5"/>
+                                    <TextBox Width="350" Margin="5"
+                                             Text="{Binding FormProduct.Quantity, Mode=TwoWay}"/>
                                 </WrapPanel>
                                 <WrapPanel>
-                                    <Label Content="Seneder" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtSender" Width="350" Margin="5"/>
+                                    <Label Content="Sender" Width="100" Margin="5" FontWeight="Bold"/>
+                                    <ComboBox Width="350" Margin="5"
+                                             ItemsSource="{Binding Persons}"
+                                             DisplayMemberPath="PersonName"
+                                             SelectedValuePath="PersonName"
+                                             SelectedValue="{Binding FormProduct.Sender}"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Location" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtLocation" Width="350" Margin="5"/>
+                                    <ComboBox Width="350" Margin="5"
+                                             ItemsSource="{Binding Locations}"
+                                             DisplayMemberPath="WarehouseName"
+                                             SelectedValuePath="WarehouseName"
+                                             SelectedValue="{Binding FormProduct.Location}"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Category Name" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <ComboBox x:Name="cboCat" Width="350" Margin="5"/>
+                                    <ComboBox Width="350" Margin="5"
+                                              ItemsSource="{Binding Categories}"
+                                              DisplayMemberPath="CatName"
+                                              SelectedValuePath="CatId"
+                                              SelectedValue="{Binding FormProduct.CatId}"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Date Stock In" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <DatePicker x:Name="txtDateIn" Width="350" Margin="5"/>
+                                    <DatePicker Width="350" Margin="5"
+                                                SelectedDate="{Binding FormProduct.DateIn, Mode=TwoWay}"
+                                                DisplayDateEnd="{x:Static sys:DateTime.Today}"
+                                                SelectedDateFormat="Short"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Date Stock Out" Width="100" Margin="5" FontWeight="Bold"/>
-                                    <DatePicker x:Name="txtDateOut" Width="350" Margin="5"/>
+                                    <DatePicker Width="350" Margin="5"
+                                                SelectedDate="{Binding FormProduct.DateOut, Mode=TwoWay}"
+                                                DisplayDateEnd="{x:Static sys:DateTime.Today}"
+                                                SelectedDateFormat="Short"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <Label Content="Status" Width="100" Margin="5" FontWeight="Bold"/>
                                     <WrapPanel Width="350" Margin="5" VerticalAlignment="Center">
-                                        <RadioButton x:Name="rbEnable" Content="Enable" GroupName="Status" IsChecked="true"/>
-                                        <RadioButton x:Name="rbDisable" Content="Disable" GroupName="Status"/>
+                                        <RadioButton    Content="Enable"
+                                                        GroupName="StatusFilter"
+                                                        IsChecked="{Binding FormProduct.Status,
+                                                                    Mode=TwoWay,
+                                                                    UpdateSourceTrigger=PropertyChanged}"/>
+                                        <RadioButton Content="Disable"
+                                                        GroupName="StatusFilter"
+                                                        IsChecked="{Binding FormProduct.Status,
+                                                                    Mode=TwoWay,
+                                                                    Converter={StaticResource InverseBoolConverter},
+                                                                    UpdateSourceTrigger=PropertyChanged}"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </StackPanel>
@@ -260,16 +305,18 @@
                     </GroupBox>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="Reporting Generation">
+            <TabItem Header="Reporting Generation"
+                     DataContext="{Binding ReportVM}">
                 <StackPanel>
                     <GroupBox Header="File Control" Width="700" Margin="10" Background="LightGray">
                         <StackPanel>
                             <WrapPanel Margin="5">
                                 <Label Content="File Name: " Margin="5" Width="100" FontWeight="Medium" FontSize="14"/>
                                 <TextBox x:Name="txtName3" Margin="5" Width="350"/>
-                                <Button x:Name="btnSearch3" Content="SEARCH" Margin="5" Width="150" Click="btnSearch3_Click"/>
+                                <Button Content="SEARCH" Margin="5" Width="150" Command="{Binding SearchCommand}"/>
                             </WrapPanel>
-                            <DataGrid x:Name="lstFile" Width="700" Margin="10" SelectionChanged="lstFile_SelectionChanged" AutoGenerateColumns="False">
+                            <DataGrid Width="650" Margin="10" AutoGenerateColumns="False"
+                                      ItemsSource="{Binding Reports}" SelectedItem="{Binding SelectedReport}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding FileName}"/>
                                     <DataGridTextColumn Header="Path" Width="*" Binding="{Binding FilePath}"/>
@@ -279,15 +326,16 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <WrapPanel>
-                                                    <Button x:Name="btnExprot" Content="Export" Click="btnExprot_Click"/>
-                                                    <Button x:Name="btnRemove" Content="Delete" Click="btnRemove_Click"/>
+                                                    <Button Content="Export" Command="{Binding ExportCommand}"/>
+                                                    <Button Content="Delete" Command="{Binding DeleteCommand}"/>
                                                 </WrapPanel>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Button x:Name="btnBacklog3" Content="BACKLOG DATA" Width="100" HorizontalAlignment="Right" Margin="5" Click="btnBacklog3_Click"/>
+                            <Button Content="BACKLOG DATA" Width="100" HorizontalAlignment="Right" Margin="5"
+                                    Command="{Binding BacklogCommand}"/>
                         </StackPanel>
                     </GroupBox>
                     <GroupBox Header="Content" Width="700" Margin="10" Background="LightGray">
@@ -296,14 +344,15 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <TextBox x:Name="txtShow" Margin="5" Width="600" Height="200" TextWrapping="Wrap"
-                                  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="0" IsReadOnly="true"/>
-                            <Button x:Name="btnClear" Grid.Row="1" Content="CLEAR UP" Width="100" HorizontalAlignment="Right" Click="btnClear_Click"/>
+                            <TextBox Margin="5" Width="600" Height="200" TextWrapping="Wrap"
+                                  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="0" IsReadOnly="true"
+                                     Text="{Binding FormReport.Content, Mode=TwoWay}"/>
+                            <Button Grid.Row="1" Content="CLEAR UP" Width="100" HorizontalAlignment="Right"
+                                    Command="{Binding ResetCommand}"/>
                         </Grid>
                     </GroupBox>
                 </StackPanel>
             </TabItem>
-            -->
         </TabControl>
         <WrapPanel Grid.Row="1">
             <Button Width="100" Margin="10" Content="Exit"  

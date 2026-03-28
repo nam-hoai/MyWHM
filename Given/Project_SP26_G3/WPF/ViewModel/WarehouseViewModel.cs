@@ -14,9 +14,21 @@ namespace WPF.ViewModel
     public class WarehouseViewModel : BaseViewModel
     {
         private readonly IWareHouseService _service;
+        private readonly IBackLogService _backlog;
         public ObservableCollection<Warehouse> Warehouses { get; set; }
 
         private Warehouse _selectedWarehouse = null!;
+
+        private void LoadFromWarehouse(Warehouse house)
+        {
+            FormWarehouse = new Warehouse
+            {
+                WarehouseId = house.WarehouseId,
+                WarehouseName = house.WarehouseName,
+                Size = house.Size,
+                Status = house.Status
+            };
+        }
         public Warehouse SelectedWarehouse
         {
             get => _selectedWarehouse;
@@ -27,16 +39,7 @@ namespace WPF.ViewModel
                 (DeleteCommand as RelayCommand)?.RaiseCanExecuteChanged();
                 OnPropertyChanged();
 
-                if (value != null)
-                {
-                    FormWarehouse = new Warehouse
-                    {
-                        WarehouseId = value.WarehouseId,
-                        WarehouseName = value.WarehouseName,
-                        Size = value.Size,
-                        Status = value.Status
-                    };
-                }
+                if (value != null) LoadFromWarehouse(value);
             }
         }
 
@@ -78,12 +81,13 @@ namespace WPF.ViewModel
         public ICommand DeleteCommand { get; }
         public ICommand ResetCommand { get; }
         public ICommand SearchCommand { get; }
-        //public ICommand BacklogCommand { get; }
+        public ICommand BacklogCommand { get; }
         //public ICommand ReportCommand { get; }
 
         public WarehouseViewModel()
         {
             _service = new WarehouseService();
+            _backlog = new BackLogService();
             Warehouses = new ObservableCollection<Warehouse>();
             LoadData();
 
@@ -92,10 +96,11 @@ namespace WPF.ViewModel
             DeleteCommand = new RelayCommand(Delete, () => SelectedWarehouse != null);
             ResetCommand = new RelayCommand(Reset);
             SearchCommand = new RelayCommand(Search);
-            //BacklogCommand = new RelayCommand(Backlog);
+            BacklogCommand = new RelayCommand(Backlog);
             //ReportCommand = new RelayCommand(Report);
 
         }
+
         private void LoadData()
         {
             Warehouses = new ObservableCollection<Warehouse>(_service.GetAll());
@@ -108,15 +113,21 @@ namespace WPF.ViewModel
                 //validation
                 if (string.IsNullOrWhiteSpace(FormWarehouse.WarehouseName))
                 {
-                    MessageBox.Show("Name required");
+                    MessageBox.Show("Name is required");
                     return;
                 }
-                if (FormWarehouse.Size < 0)
+                //for size
+                if (FormWarehouse.Size == null)
                 {
-                    MessageBox.Show("Size must be possitive");
+                    MessageBox.Show("Size is required");
                     return;
                 }
-
+                if(FormWarehouse.Size < 0)
+                {
+                    MessageBox.Show("Size must be greater than or equal 0 ");
+                    FormWarehouse.Size = 0;
+                    return;
+                }
                 _service.Add(FormWarehouse);
                 MessageBox.Show($"Added {FormWarehouse.WarehouseName} success");
                 Reset();
@@ -127,7 +138,7 @@ namespace WPF.ViewModel
             }
         }
 
-            private void Edit()
+        private void Edit()
         {
             if (SelectedWarehouse == null) return;
             try
@@ -137,7 +148,10 @@ namespace WPF.ViewModel
                     MessageBox.Show("Warehouse name is required");
                     return;
                 }
-                
+
+                var oldData = _backlog.CloneEntity(SelectedWarehouse);
+                var newData = _backlog.CloneEntity(FormWarehouse); // set data update
+
                 var updated = new Warehouse
                 {
                     WarehouseId = SelectedWarehouse.WarehouseId,
@@ -147,6 +161,7 @@ namespace WPF.ViewModel
                 };
 
                 _service.Update(updated);
+                _backlog.Push(oldData, newData, "Update", SelectedWarehouse.WarehouseId);
                 MessageBox.Show($"Update {FormWarehouse.WarehouseName} success");
                 Reset();
             }
@@ -161,7 +176,10 @@ namespace WPF.ViewModel
             if (SelectedWarehouse == null) return;
             try
             {
+                var oldData = _backlog.CloneEntity(SelectedWarehouse);
+                
                 _service.Delete(SelectedWarehouse);
+                _backlog.Push(oldData, null, "Delete", oldData.WarehouseId);
                 MessageBox.Show($"Deleted {SelectedWarehouse.WarehouseName} sucess");
                 Reset();
             }
@@ -177,7 +195,6 @@ namespace WPF.ViewModel
             FormWarehouse = new Warehouse();
             SelectedWarehouse = null!;
         }
-
         private void Search()
         {
             string key = $"{FormWarehouse.WarehouseName} {FormWarehouse.Size} {FormWarehouse.Status}";
@@ -186,6 +203,35 @@ namespace WPF.ViewModel
             Warehouses = new ObservableCollection<Warehouse>(result);
 
             OnPropertyChanged(nameof(Warehouses));
+        }
+        private void Backlog()
+        {
+            try
+            {
+                if (!_backlog.HasBacklog())
+                {
+                    MessageBox.Show("No backlog to restore!");
+                    return;
+                }
+                var res = MessageBox.Show("Undo all? Yes=all, No=last", "Undo", MessageBoxButton.YesNoCancel);
+                if (res == MessageBoxResult.Cancel) return;
+                if (res == MessageBoxResult.Yes)
+                {
+                    _backlog.UndoAll();
+                    LoadData();
+                    MessageBox.Show("All undone");
+                }
+                else if (res == MessageBoxResult.No)
+                {
+                    _backlog.UndoLast();
+                    LoadData();
+                    MessageBox.Show("Last undone");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Undo failed: " + ex.Message);
+            }
         }
     }
 }

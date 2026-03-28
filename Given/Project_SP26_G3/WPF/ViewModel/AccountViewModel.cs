@@ -14,9 +14,24 @@ namespace WPF.ViewModel
     public class AccountViewModel : BaseViewModel
     {
         private readonly IAccountService _service;
+        private readonly IBackLogService _backlog;
         public ObservableCollection<Person> Accounts { get; set; }
 
         private Person _selectedAccount = null!;
+        private void LoadFormAccount(Person person)
+        {
+            FormAccount = new Person
+            {
+                PersonId = person.PersonId,
+                PersonName = person.PersonName,
+                Password = person.Password,
+                Birthdate = person.Birthdate,
+                Address = person.Address,
+                Phone = person.Phone,
+                Status = person.Status,
+                RoleId = person.RoleId
+            };
+        }
         public Person SelectedAccount
         {
             get => _selectedAccount;
@@ -29,17 +44,7 @@ namespace WPF.ViewModel
 
                 if (value != null)
                 {
-                    FormAccount = new Person
-                    {
-                        PersonId = value.PersonId,
-                        PersonName = value.PersonName,
-                        Password = value.Password,
-                        Birthdate = value.Birthdate,
-                        Address = value.Address,
-                        Phone = value.Phone,
-                        Status = value.Status,
-                        RoleId = value.RoleId
-                    };
+                    LoadFormAccount(value);
                 }
             }
         }
@@ -81,12 +86,13 @@ namespace WPF.ViewModel
         public ICommand DeleteCommand { get; }
         public ICommand ResetCommand { get; }
         public ICommand SearchCommand { get; }
-        //public ICommand BacklogCommand { get; }
+        public ICommand BacklogCommand { get; }
         //public ICommand ReportCommand { get; }
 
         public AccountViewModel()
         {
             _service = new AccountService();
+            _backlog = new BackLogService();
             Accounts = new ObservableCollection<Person>();
             LoadData();
 
@@ -95,10 +101,11 @@ namespace WPF.ViewModel
             DeleteCommand = new RelayCommand(Delete, () => SelectedAccount != null);
             ResetCommand = new RelayCommand(Reset);
             SearchCommand = new RelayCommand(Search);
-            //BacklogCommand = new RelayCommand(Backlog);
+            BacklogCommand = new RelayCommand(Backlog);
             //ReportCommand = new RelayCommand(Report);
 
         }
+
         private void LoadData()
         {
             Accounts = new ObservableCollection<Person>(_service.GetAll());
@@ -124,6 +131,13 @@ namespace WPF.ViewModel
                     MessageBox.Show("Password required");
                     return;
                 }
+
+                if (_backlog.CheckDuplicateInBacklog(FormAccount))
+                {
+                    MessageBox.Show($"This {FormAccount.PersonName} has been deleted and stored in Backlog to restore. Please click 'BACKLOG DATA'!", "Dupplication Found",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
                 //set role for normal user
                 FormAccount.RoleId = 2;
 
@@ -133,7 +147,7 @@ namespace WPF.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}; Detail: {ex.InnerException}");
+                MessageBox.Show($"{ex.Message}; Detail: {ex.InnerException?.Message??"N/A"}");
             }
         }
         private void Edit()
@@ -146,6 +160,10 @@ namespace WPF.ViewModel
                     MessageBox.Show("Person name is required");
                     return;
                 }
+
+                var oldData = _backlog.CloneEntity(SelectedAccount);
+                var newData = _backlog.CloneEntity(FormAccount); // set data update
+
                 var updated = new Person
                 {
                     PersonId = SelectedAccount.PersonId,
@@ -159,6 +177,7 @@ namespace WPF.ViewModel
                 };
 
                 _service.Update(updated);
+                _backlog.Push(oldData, newData, "Update", SelectedAccount.PersonId);
                 MessageBox.Show($"Update {FormAccount.PersonName} success");
                 Reset();
             }
@@ -172,7 +191,10 @@ namespace WPF.ViewModel
             if (SelectedAccount == null) return;
             try
             {
+                var oldData = _backlog.CloneEntity(SelectedAccount);
+
                 _service.Delete(SelectedAccount);
+                _backlog.Push(oldData, null, "Delete", oldData.PersonId);
                 MessageBox.Show($"Deleted {SelectedAccount.PersonName} sucess");
                 Reset();
             }
@@ -196,6 +218,36 @@ namespace WPF.ViewModel
             LoadData();
             FormAccount = new Person();
             SelectedAccount = null!;
+        }
+
+        private void Backlog()
+        {
+            try
+            {
+                if (!_backlog.HasBacklog())
+                {
+                    MessageBox.Show("No backlog to restore!");
+                    return;
+                }
+                var res = MessageBox.Show("Undo all? Yes=all, No=last", "Undo", MessageBoxButton.YesNoCancel);
+                if (res == MessageBoxResult.Cancel) return;
+                if (res == MessageBoxResult.Yes)
+                {
+                    _backlog.UndoAll();
+                    LoadData();
+                    MessageBox.Show("All undone");
+                }
+                else if (res == MessageBoxResult.No)
+                {
+                    _backlog.UndoLast();
+                    LoadData();
+                    MessageBox.Show("Last undone");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Undo failed: {ex.Message} - Detail: {ex.InnerException?.Message??"N/A"}");
+            }
         }
     }
 }
