@@ -15,6 +15,7 @@ namespace WPF.ViewModel
     {
         private readonly IWareHouseService _service;
         private readonly IBackLogService _backlog;
+        private readonly ReportService _report;
         public ObservableCollection<Warehouse> Warehouses { get; set; }
 
         private Warehouse _selectedWarehouse = null!;
@@ -82,12 +83,13 @@ namespace WPF.ViewModel
         public ICommand ResetCommand { get; }
         public ICommand SearchCommand { get; }
         public ICommand BacklogCommand { get; }
-        //public ICommand ReportCommand { get; }
+        public ICommand ReportCommand { get; }
 
         public WarehouseViewModel()
         {
             _service = new WarehouseService();
             _backlog = new BackLogService();
+            _report = ReportService.Instance;
             Warehouses = new ObservableCollection<Warehouse>();
             LoadData();
 
@@ -97,7 +99,7 @@ namespace WPF.ViewModel
             ResetCommand = new RelayCommand(Reset);
             SearchCommand = new RelayCommand(Search);
             BacklogCommand = new RelayCommand(Backlog);
-            //ReportCommand = new RelayCommand(Report);
+            ReportCommand = new RelayCommand(Report);
 
         }
 
@@ -231,6 +233,18 @@ namespace WPF.ViewModel
             catch (Exception ex)
             {
                 MessageBox.Show("Undo failed: " + ex.Message);
+            }
+        }
+        private void Report()
+        {
+            var result = _report.GenerateReport(Warehouses, "Warehouses", "Reports");
+            if (result.IsSuccess)
+            {
+                MessageBox.Show(result.Message, "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(result.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

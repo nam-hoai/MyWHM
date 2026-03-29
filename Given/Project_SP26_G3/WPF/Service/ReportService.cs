@@ -6,66 +6,106 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using WPF.ViewModel;
 
 namespace WPF.Service
 {
-    public class ReportEntry
+    public class ReportEntry : BaseViewModel
     {
-        public string FileName { get; set; } = null!;
-        public string FilePath { get; set; } = null!;
-        public DateTime CreatedAt { get; set; }
-        public long FileSize { get; set; }
-        public string Content { get; set; } = null!;
-    }
+        private string _fileName = null!;
+        public string FileName
+        {
+            get => _fileName;
+            set { _fileName = value; OnPropertyChanged(); }
+        }
 
+        private string _filePath = null!;
+        public string FilePath
+        {
+            get => _filePath;
+            set { _filePath = value; OnPropertyChanged(); }
+        }
+
+        private DateTime _createdAt;
+        public DateTime CreatedAt
+        {
+            get => _createdAt;
+            set { _createdAt = value; OnPropertyChanged(); }
+        }
+
+        private long _fileSize;
+        public long FileSize
+        {
+            get => _fileSize;
+            set { _fileSize = value; OnPropertyChanged(); }
+        }
+
+        private string _content = null!;
+        public string Content
+        {
+            get => _content;
+            set { _content = value; OnPropertyChanged(); }
+        }
+    }
     public class ReportService : IReportService
     {
+        // Giữ instance duy nhất nếu bạn không dùng DI Container (như Autofac/Microsoft DI)
+        private static ReportService _instance = null!;
+        public static ReportService Instance => _instance ??= new ReportService();
+
         private readonly Dictionary<Type, Func<IEnumerable<object>, string>> _formatters = new();
         private readonly Stack<ReportEntry> _backlog = new(); // dùng cho undo delete
-        public ObservableCollection<ReportEntry> Reports { get; set; } = new();
+        public ObservableCollection<ReportEntry> Reports { get; } = new ObservableCollection<ReportEntry>();
+        private ReportService()
+        {
 
+        }
         public void RegisterFormatter<T>(Func<IEnumerable<T>, string> formatter)
         {
             _formatters[typeof(T)] = objs => formatter(objs.Cast<T>());
         }
         //generare report using formatter customize
-        public bool GenerateReport<T>(IEnumerable<T> data, string title, string folder)
+        public (bool IsSuccess, String Message) GenerateReport<T>(IEnumerable<T> data, string title, string folder)
         {
             try
             {
                 if (data == null || !data.Any())
                 {
-                    MessageBox.Show("No data to generate report.");
-                    return false;
+                    return (false, "No data to generate report.");
                 }
                 //create folder if not exist
                 if (!Directory.Exists(folder))
                 {
                     Directory.CreateDirectory(folder);
                 }
+
                 string text = GenerateReportText(data, title);
+
                 string fileName = $"{title}_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
+
                 string filePath = Path.Combine(folder, fileName);
 
                 File.WriteAllText(filePath, text, Encoding.UTF8);
 
                 // thêm vào backlog (chưa load vào datagrid)
-                _backlog.Push(new ReportEntry
+                var newReport = new ReportEntry
                 {
                     FileName = fileName,
                     FilePath = filePath,
                     CreatedAt = DateTime.Now,
                     FileSize = new FileInfo(filePath).Length,
                     Content = text
-                });
+                };
+                _backlog.Push(newReport);
 
-                MessageBox.Show($"Report [{fileName}] generated successfully.");
-                return true;
+                // Tự động thêm vào danh sách hiển thị
+                Reports.Add(newReport);
+
+                return (true, $"Report [{fileName}] generated successfully.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to generate report: " + ex.Message);
-                return false;
+                return (false, $"Failed to generate report: {ex.Message}");
             }
         }
         //support method: using custom formatter
@@ -97,20 +137,18 @@ namespace WPF.Service
             return sb.ToString();
         }
         //Search + Load
-        public void SearchReports(string folderPath)
+        public (bool IsSuccess, string Message) SearchReports(string folderPath)
         {
             Reports.Clear();
             if (!Directory.Exists(folderPath))
             {
-                MessageBox.Show("Report folder not found!");
-                return;
+                return (false, "Report folder not found!");
             }
 
             var files = Directory.GetFiles(folderPath, "*.txt");
             if (files.Length == 0)
             {
-                MessageBox.Show("No report files found.");
-                return;
+                return (false, "No report files found.");
             }
 
             foreach (var file in files)
@@ -125,16 +163,13 @@ namespace WPF.Service
                     Content = File.ReadAllText(fi.FullName)
                 });
             }
+            return (true, "Already");
         }
-        public void SearchReports(string folderPath, string keyword)
+        public (bool IsSuccess, String Message) SearchReports(string folderPath, string keyword)
         {
             Reports.Clear();
-
             if (!Directory.Exists(folderPath))
-            {
-                MessageBox.Show("Report folder not found!");
-                return;
-            }
+                return (false, "Report folder not found!");
 
             var files = Directory.GetFiles(folderPath, "*.txt");
 
@@ -145,10 +180,8 @@ namespace WPF.Service
                 .ToArray();
 
             if (files.Length == 0)
-            {
-                MessageBox.Show("No matching report files found.");
-                return;
-            }
+                return (false, "No matching report files found.");
+            
 
             foreach (var file in files)
             {
@@ -162,9 +195,10 @@ namespace WPF.Service
                     Content = File.ReadAllText(fi.FullName)
                 });
             }
+            return (true, "Already");
         }
         //Export report
-        public bool ExportReport(ReportEntry report, string outputFolder)
+        public (bool IsSuccess, String Message) ExportReport(ReportEntry report, string outputFolder)
         {
             try
             {
@@ -173,31 +207,30 @@ namespace WPF.Service
 
                 string path = Path.Combine(outputFolder, report.FileName);
                 File.WriteAllText(path, report.Content, Encoding.UTF8);
-                MessageBox.Show($"Report exported to {path}");
-                return true;
+                return (true, $"Report exported to {path}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Export failed: " + ex.Message);
-                return false;
+                return (false, $"Export failed: {ex.Message}");
             }
         }
         //delete
-        public void DeleteReport(ReportEntry report)
+        public (bool IsSuccess, String Message) DeleteReport(ReportEntry report)
         {
-            if (report == null) return;
+            if (report == null) return (false, "No found file to delete");
 
             _backlog.Push(report); // backup để undo
             Reports.Remove(report);
-
+            
             try
             {
                 if (File.Exists(report.FilePath))
                     File.Delete(report.FilePath);
+                return (true, "Delete success");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to delete file: " + ex.Message);
+                return (false, $"Failed to delete file: {ex.Message}");
             }
         }
         //read content
@@ -213,10 +246,7 @@ namespace WPF.Service
         public void UndoDelete()
         {
             if (_backlog.Count == 0)
-            {
                 MessageBox.Show("No deleted reports to restore.");
-                return;
-            }
 
             var entry = _backlog.Pop();
             Reports.Add(entry);
@@ -229,7 +259,7 @@ namespace WPF.Service
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Restore failed: " + ex.Message);
+                throw new Exception($"Restore failed: {ex.Message}");
             }
         }
     }

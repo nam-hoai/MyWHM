@@ -20,7 +20,7 @@
                      DataContext="{Binding AccountVM}">
                 <StackPanel>
                     <DataGrid  ItemsSource="{Binding Accounts}" SelectedItem="{Binding SelectedAccount}"
-                               AutoGenerateColumns="False" Margin="10" Width="700">
+                               AutoGenerateColumns="False" Margin="10" Width="700" IsReadOnly="true">
                         <DataGrid.RowStyle>
                             <Style TargetType="DataGridRow">
                                 <Style.Triggers>
@@ -112,7 +112,7 @@
             <TabItem Header="Wasehose Configuration"
                      DataContext="{Binding WarehouseVM}">
                 <StackPanel>
-                    <DataGrid Margin="10" Width="700" AutoGenerateColumns="False"
+                    <DataGrid Margin="10" Width="700" AutoGenerateColumns="False" IsReadOnly="true"
                               ItemsSource="{Binding Warehouses}" SelectedItem="{Binding SelectedWarehouse}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding WarehouseId}" Width="*"/>
@@ -184,7 +184,7 @@
             <TabItem Header="Product Catalog"
                      DataContext="{Binding ProductVM}">
                 <StackPanel>
-                    <DataGrid Margin="10" Width="700" AutoGenerateColumns="False"
+                    <DataGrid Margin="10" Width="700" AutoGenerateColumns="False" IsReadOnly="true"
                               ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding ProductId}"/>
@@ -312,23 +312,30 @@
                         <StackPanel>
                             <WrapPanel Margin="5">
                                 <Label Content="File Name: " Margin="5" Width="100" FontWeight="Medium" FontSize="14"/>
-                                <TextBox x:Name="txtName3" Margin="5" Width="350"/>
+                                <TextBox Margin="5" Width="350"
+                                         Text="{Binding FormReport.FileName, Mode=TwoWay}"/>
                                 <Button Content="SEARCH" Margin="5" Width="150" Command="{Binding SearchCommand}"/>
                             </WrapPanel>
-                            <DataGrid Width="650" Margin="10" AutoGenerateColumns="False"
+                            <DataGrid Width="650" Margin="10" AutoGenerateColumns="False" IsReadOnly="true"
                                       ItemsSource="{Binding Reports}" SelectedItem="{Binding SelectedReport}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name" Width="*" Binding="{Binding FileName}"/>
-                                    <DataGridTextColumn Header="Path" Width="*" Binding="{Binding FilePath}"/>
-                                    <DataGridTextColumn Header="CreatedAt" Width="*" Binding="{Binding CreatedAt}"/>
+                                    <DataGridTextColumn Header="Name" Width="3*" Binding="{Binding FileName}"/>
+                                    <DataGridTextColumn Header="Path" Width="3*" Binding="{Binding FilePath}"/>
+                                    <DataGridTextColumn Header="CreatedAt" Width="3*" Binding="{Binding CreatedAt}"/>
                                     <DataGridTextColumn Header="Size" Width="*" Binding="{Binding FileSize}"/>
-                                    <DataGridTemplateColumn Header="Actions" Width="*">
+                                    <DataGridTemplateColumn Header="Actions" Width="2*">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <WrapPanel>
-                                                    <Button Content="Export" Command="{Binding ExportCommand}"/>
-                                                    <Button Content="Delete" Command="{Binding DeleteCommand}"/>
-                                                </WrapPanel>
+                                                    <Button Content="Export" 
+                                                        Command="{Binding DataContext.ExportCommand, 
+                                                                          RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                        CommandParameter="{Binding}"/>
+                                                    <Button Content="Delete" 
+                                                        Command="{Binding DataContext.DeleteCommand, 
+                                                                          RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                        CommandParameter="{Binding}"/>
+                                                    </WrapPanel>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

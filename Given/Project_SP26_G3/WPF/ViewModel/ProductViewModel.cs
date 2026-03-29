@@ -17,6 +17,7 @@ namespace WPF.ViewModel
     {
         private readonly IProductService _service;
         private readonly IBackLogService _backlog;
+        private readonly ReportService _report;
         public ObservableCollection<Product> Products { get; set; }
 
         private Product _selectedProduct = null!;
@@ -121,12 +122,13 @@ namespace WPF.ViewModel
         public ICommand ResetCommand { get; }
         public ICommand SearchCommand { get; }
         public ICommand BacklogCommand { get; }
-        //public ICommand ReportCommand { get; }
+        public ICommand ReportCommand { get; }
 
         public ProductViewModel()
         {
             _service = new ProductService();
             _backlog = new BackLogService();
+            _report = ReportService.Instance;
             Products = new ObservableCollection<Product>();
             Categories = new ObservableCollection<Category>();
             Persons = new ObservableCollection<Person>();
@@ -139,7 +141,7 @@ namespace WPF.ViewModel
             ResetCommand = new RelayCommand(Reset);
             SearchCommand = new RelayCommand(Search);
             BacklogCommand = new RelayCommand(Backlog);
-            //ReportCommand = new RelayCommand(Report);
+            ReportCommand = new RelayCommand(Report);
 
         }
 
@@ -420,6 +422,18 @@ namespace WPF.ViewModel
             catch (Exception ex)
             {
                 MessageBox.Show("Undo failed: " + ex.Message);
+            }
+        }
+        private void Report()
+        {
+            var result = _report.GenerateReport(Products, "Products", "Reports");
+            if (result.IsSuccess)
+            {
+                MessageBox.Show(result.Message, "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(result.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

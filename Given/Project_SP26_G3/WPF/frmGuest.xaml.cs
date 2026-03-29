@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WPF.ViewModel;
 
 namespace WPF
 {
@@ -22,6 +23,8 @@ namespace WPF
         public frmGuest(string name)
         {
             InitializeComponent();
+            Title = $"Wlecome {name}";
+            DataContext = new GuestViewModel();
         }
     }
 }

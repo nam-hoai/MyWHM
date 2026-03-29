@@ -3,40 +3,56 @@
   "WorkspaceRootPath": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\reportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\reportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\ireportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\ireportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\reportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\reportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\warehouseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\warehouseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\ireportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\ireportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmadmin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmadmin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmguest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmguest.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\service\\ibacklogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\service\\ibacklogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\frmguest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\frmguest.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|e:\\mon_hoc\\tailieu_prn212\\sp26\\group_project\\mywhm\\given\\project_sp26_g3\\wpf\\viewmodel\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{782C5CA4-3854-4950-AFE9-18CAD07AF941}|WPF\\WPF.csproj|solutionrelative:wpf\\viewmodel\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,11 +62,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "frmAdmin.xaml",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmAdmin.xaml",
               "RelativeDocumentMoniker": "WPF\\frmAdmin.xaml",
@@ -58,12 +74,11 @@
               "RelativeToolTip": "WPF\\frmAdmin.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-03-17T01:55:40.489Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "AdminViewModel.cs",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\AdminViewModel.cs",
               "RelativeDocumentMoniker": "WPF\\ViewModel\\AdminViewModel.cs",
@@ -71,8 +86,7 @@
               "RelativeToolTip": "WPF\\ViewModel\\AdminViewModel.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-26T23:00:21.961Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -89,20 +103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IBackLogService.cs",
-              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\IBackLogService.cs",
-              "RelativeDocumentMoniker": "WPF\\Service\\IBackLogService.cs",
-              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\IBackLogService.cs",
-              "RelativeToolTip": "WPF\\Service\\IBackLogService.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T23:32:38.909Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "AccountService.cs",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\AccountService.cs",
               "RelativeDocumentMoniker": "WPF\\Service\\AccountService.cs",
@@ -115,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "frmAdmin.xaml.cs",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmAdmin.xaml.cs",
               "RelativeDocumentMoniker": "WPF\\frmAdmin.xaml.cs",
@@ -123,12 +124,76 @@
               "RelativeToolTip": "WPF\\frmAdmin.xaml.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-27T16:52:02.864Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "WPF\\ViewModel\\RelayCommand.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\RelayCommand.cs",
+              "RelativeToolTip": "WPF\\ViewModel\\RelayCommand.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-28T17:05:58.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "frmGuest.xaml.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmGuest.xaml.cs",
+              "RelativeDocumentMoniker": "WPF\\frmGuest.xaml.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmGuest.xaml.cs",
+              "RelativeToolTip": "WPF\\frmGuest.xaml.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-28T14:59:19.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "frmGuest.xaml",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmGuest.xaml",
+              "RelativeDocumentMoniker": "WPF\\frmGuest.xaml",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\frmGuest.xaml",
+              "RelativeToolTip": "WPF\\frmGuest.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-28T13:57:58.742Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "WarehouseViewModel.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\WarehouseViewModel.cs",
+              "RelativeDocumentMoniker": "WPF\\ViewModel\\WarehouseViewModel.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\WarehouseViewModel.cs",
+              "RelativeToolTip": "WPF\\ViewModel\\WarehouseViewModel.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-28T13:50:50.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductViewModel.cs",
+              "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\ProductViewModel.cs",
+              "RelativeDocumentMoniker": "WPF\\ViewModel\\ProductViewModel.cs",
+              "ToolTip": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\ProductViewModel.cs",
+              "RelativeToolTip": "WPF\\ViewModel\\ProductViewModel.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-28T13:50:35.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "ReportService.cs",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\ReportService.cs",
               "RelativeDocumentMoniker": "WPF\\Service\\ReportService.cs",
@@ -140,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "IReportService.cs",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\Service\\IReportService.cs",
               "RelativeDocumentMoniker": "WPF\\Service\\IReportService.cs",
@@ -152,7 +217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ReportViewModel.cs",
               "DocumentMoniker": "E:\\MON_HOC\\tailieu_PRN212\\SP26\\Group_Project\\MyWHM\\Given\\Project_SP26_G3\\WPF\\ViewModel\\ReportViewModel.cs",
               "RelativeDocumentMoniker": "WPF\\ViewModel\\ReportViewModel.cs",
@@ -161,14 +226,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-28T05:19:51.953Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
             }
           ]
         }

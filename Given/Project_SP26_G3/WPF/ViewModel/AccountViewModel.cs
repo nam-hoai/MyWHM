@@ -15,6 +15,7 @@ namespace WPF.ViewModel
     {
         private readonly IAccountService _service;
         private readonly IBackLogService _backlog;
+        private readonly ReportService _report;
         public ObservableCollection<Person> Accounts { get; set; }
 
         private Person _selectedAccount = null!;
@@ -87,12 +88,13 @@ namespace WPF.ViewModel
         public ICommand ResetCommand { get; }
         public ICommand SearchCommand { get; }
         public ICommand BacklogCommand { get; }
-        //public ICommand ReportCommand { get; }
+        public ICommand ReportCommand { get; }
 
         public AccountViewModel()
         {
             _service = new AccountService();
             _backlog = new BackLogService();
+            _report = ReportService.Instance;
             Accounts = new ObservableCollection<Person>();
             LoadData();
 
@@ -102,7 +104,7 @@ namespace WPF.ViewModel
             ResetCommand = new RelayCommand(Reset);
             SearchCommand = new RelayCommand(Search);
             BacklogCommand = new RelayCommand(Backlog);
-            //ReportCommand = new RelayCommand(Report);
+            ReportCommand = new RelayCommand(Report);
 
         }
 
@@ -247,6 +249,18 @@ namespace WPF.ViewModel
             catch (Exception ex)
             {
                 MessageBox.Show($"Undo failed: {ex.Message} - Detail: {ex.InnerException?.Message??"N/A"}");
+            }
+        }
+        private void Report()
+        {
+             var result = _report.GenerateReport(Accounts,"Persons", "Reports");
+            if (result.IsSuccess)
+            {
+                MessageBox.Show(result.Message, "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(result.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
